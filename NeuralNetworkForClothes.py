@@ -17,20 +17,25 @@ class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
 train_images = train_images/255.0
 test_images = test_images/255.0
 
+# create the model
 model = keras.Sequential([
     keras.layers.Flatten(input_shape=(28, 28)),
     keras.layers.Dense(128, activation="relu"),
     keras.layers.Dense(10, activation="softmax")
 ])
 
+# compile the model
 model.compile(optimizer="adam",
               loss="sparse_categorical_crossentropy", metrics=["accuracy"])
 
 # epochs=times you'll see the same image
 model.fit(train_images, train_labels, epochs=5)
 
+# make predictions
 prediction = model.predict(test_images)
 
+
+# look at predictions for first five images
 for i in range(5):
     plt.grid(False)
     plt.imshow(test_images[i], cmap=plt.cm.binary)
