@@ -3,6 +3,9 @@ from tensorflow import keras
 import numpy as np
 import matplotlib.pyplot as plt
 
+# https://www.tensorflow.org/tutorials/keras/classification
+
+
 data = keras.datasets.fashion_mnist
 
 (train_images, train_labels), (test_images, test_labels) = data.load_data()
